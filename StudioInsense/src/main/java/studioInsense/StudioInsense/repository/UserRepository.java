@@ -1,4 +1,7 @@
 package studioInsense.StudioInsense.repository;
 
-public interface UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import studioInsense.StudioInsense.entity.Users;
+
+public interface UserRepository extends JpaRepository<Users, Long> {
 }

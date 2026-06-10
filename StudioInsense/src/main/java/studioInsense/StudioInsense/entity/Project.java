@@ -30,13 +30,24 @@ public class Project {
     @Size(max = 100)
     @NotNull
     @NotEmpty
-    @Column(name = "title")
-    private String title;
+    @Column(name = "title_hu")
+    private String titleHu;
 
     @NotNull
     @NotEmpty
-    @Column(name = "description")
-    private String description;
+    @Column(name = "description_hu")
+    private String descriptionHu;
+
+    @Size(max = 100)
+    @NotNull
+    @NotEmpty
+    @Column(name = "title_eng")
+    private String titleEng;
+
+    @NotNull
+    @NotEmpty
+    @Column(name = "description_eng")
+    private String descriptionEng;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

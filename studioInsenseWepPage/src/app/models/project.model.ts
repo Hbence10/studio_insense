@@ -1,0 +1,11 @@
+import { ProjectImage } from "./projectImage.model";
+
+export interface Project {
+  id: number,
+  titleHu: string,
+  descriptionHu: string,
+  titleEng: string,
+  descriptionEng: string,
+  images: ProjectImage[]
+
+}

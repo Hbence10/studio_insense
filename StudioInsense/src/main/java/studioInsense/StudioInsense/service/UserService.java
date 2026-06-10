@@ -18,20 +18,13 @@ import java.time.LocalDateTime;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     public ResponseEntity<Object> login(AuthDto givenAuthentication) {
         Users searchedUser = userRepository.findByEmailAndIsDeleted(givenAuthentication.email(), false).orElseThrow(() -> new NotFoundException("userNotFound"));
-        if (passwordEncoder.matches(searchedUser.getPassword(), givenAuthentication.password())) {
-            throw new NotFoundException("userNotFound");
-        }
+//        if (passwordEncoder.matches(searchedUser.getPassword(), givenAuthentication.password())) {
+//            throw new NotFoundException("userNotFound");
+//        }
         return ResponseEntity.ok().body(searchedUser);
-    }
-
-    public ResponseEntity<Object> register(AuthDto givenDetails) {
-        Users newUser = new Users(givenDetails.email(), passwordEncoder.encode(givenDetails.password()));
-        userRepository.save(newUser);
-        return ResponseEntity.ok().build();
     }
 
     public ResponseEntity<Object> deleteUser(Long id) {

@@ -7,14 +7,18 @@ import { Project } from '../models/project.model';
   providedIn: 'root',
 })
 export class ProjectService {
-  http = inject(HttpClient)
-  baseUrl: string = ""
+  private http = inject(HttpClient)
+  baseUrl: string = "http://localhost:8080/project"
 
   getAllProject(): Observable<Project[]> {
     return this.http.get<Project[]>(this.baseUrl)
   }
 
-  getProjectById(id: number) {
-    return this.http.get<Project>("")
+  getProjectById(id: number): Observable<Project> {
+    return this.http.get<Project>(`${this.baseUrl}/${id}`)
+  }
+
+  deleteProject(id: number) {
+    return this.http.delete(`${this.baseUrl}/${id}`)
   }
 }

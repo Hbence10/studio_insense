@@ -24,16 +24,6 @@ public class ProjectController {
         return projectService.getProjectById(id);
     }
 
-    @PostMapping
-    private ResponseEntity<Object> createProject(@RequestBody @Valid ProjectDto newProjectDto) {
-        return projectService.createProject(newProjectDto);
-    }
-
-    @PutMapping("/{id}")
-    private ResponseEntity<Object> updateProject(@RequestBody @Valid ProjectDto updatedProjectDto, @PathVariable Long id) {
-        return projectService.updateProject(updatedProjectDto, id);
-    }
-
     @DeleteMapping("/{id}")
     private ResponseEntity<Object> deleteProject(@PathVariable Long id) {
         return projectService.deleteProject(id);

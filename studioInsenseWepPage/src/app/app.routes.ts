@@ -5,14 +5,16 @@ import { PublicationsComponent } from './components/publications/publications.co
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProjectDetailsComponent } from './components/projects/project-details/project-details.component';
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
-  {path: "projects", loadComponent: () => import("./components/projects/projects.component").then(c => c.ProjectsComponent)},
-  {path: "", pathMatch: "full", redirectTo: "home"},
-  {path: "unauthorized", component: UnauthorizedComponent},
-  {path: "publications", component: PublicationsComponent},
-  {path: "aboutUs", component: AboutusComponent},
-  {path: "services", component: ServicesComponent},
-  {path: "project/:id", component: ProjectDetailsComponent},
-  {path: "**", component: NotFoundComponent},
+  { path: "projects", loadComponent: () => import("./components/projects/projects.component").then(c => c.ProjectsComponent) },
+  { path: "", pathMatch: "full", redirectTo: "home" },
+  { path: "unauthorized", component: UnauthorizedComponent },
+  { path: "publications", component: PublicationsComponent },
+  { path: "aboutUs", component: AboutusComponent },
+  { path: "services", component: ServicesComponent },
+  { path: "project/:id", component: ProjectDetailsComponent },
+  { path: "UVRquGR0La1l6GXK0EcBVY02blFgzMCCdq7IhfjMHtd", component: LoginComponent },
+  { path: "**", component: NotFoundComponent },
 ];

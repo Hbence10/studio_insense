@@ -5,7 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import studioInsense.StudioInsense.dto.ProjectDto;
+import studioInsense.StudioInsense.entity.Project;
+import studioInsense.StudioInsense.exception.NotFoundException;
 import studioInsense.StudioInsense.repository.ProjectRepository;
+
+import java.time.LocalDateTime;
 
 @Service
 @Transactional
@@ -15,22 +19,19 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
 
     public ResponseEntity<Object> getAllProject() {
-        return null;
+        return ResponseEntity.ok(projectRepository.findByIsDeleted(false));
     }
 
     public ResponseEntity<Object> getProjectById(Long id) {
-        return null;
-    }
-
-    public ResponseEntity<Object> createProject(ProjectDto newProjectDto) {
-        return null;
-    }
-
-    public ResponseEntity<Object> updateProject(ProjectDto updatedProject, Long id) {
-        return null;
+        Project searchedProject = projectRepository.findByIdAndIsDeleted(id, false).orElseThrow(() -> new NotFoundException(""));
+        return ResponseEntity.ok(searchedProject);
     }
 
     public ResponseEntity<Object> deleteProject(Long id) {
-        return null;
+        Project searchedProject = projectRepository.findByIdAndIsDeleted(id, false).orElseThrow(() -> new NotFoundException(""));
+        searchedProject.setIsDeleted(true);
+        searchedProject.setDeletedAt(LocalDateTime.now());
+        projectRepository.save(searchedProject);
+        return ResponseEntity.ok().build();
     }
 }

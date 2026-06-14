@@ -57,5 +57,7 @@ public class Users {
     public Users(String email, String password) {
         this.email = email;
         this.password = password;
+        this.createdAt = LocalDateTime.now();
+        this.isDeleted = false;
     }
 }

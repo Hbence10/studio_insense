@@ -10,8 +10,6 @@ import studioInsense.StudioInsense.entity.Users;
 import studioInsense.StudioInsense.exception.NotFoundException;
 import studioInsense.StudioInsense.repository.UserRepository;
 
-import java.time.LocalDateTime;
-
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -22,14 +20,16 @@ public class UserService {
 
     public ResponseEntity<Object> login(AuthDto givenAuthentication) {
         Users searchedUser = userRepository.findByEmailAndIsDeleted(givenAuthentication.email(), false).orElseThrow(() -> new NotFoundException("userNotFound"));
-//        if (passwordEncoder.matches(searchedUser.getPassword(), givenAuthentication.password())) {
-//            throw new NotFoundException("userNotFound");
-//        }
+        if (passwordEncoder.matches(searchedUser.getPassword(), givenAuthentication.password())) {
+            throw new NotFoundException("userNotFound");
+        }
         return ResponseEntity.ok().body(searchedUser);
     }
 
-    public ResponseEntity<Object> register (AuthDto newUserData) {
-
-        return null;
+    public ResponseEntity<Object> register(AuthDto newUserData) {
+        String encodedPassword = passwordEncoder.encode(newUserData.password());
+        Users newUser = new Users(newUserData.email(), newUserData.password());
+        userRepository.save(newUser);
+        return ResponseEntity.ok().build();
     }
 }

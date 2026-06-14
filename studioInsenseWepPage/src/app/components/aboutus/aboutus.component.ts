@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FrontendService } from '../../services/frontend.service';
 
 @Component({
   selector: 'app-aboutus',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './aboutus.component.scss',
 })
 export class AboutusComponent {
-
+  frontendService = inject(FrontendService)
+  showImage: boolean = false
 }

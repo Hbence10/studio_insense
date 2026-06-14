@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FrontendService } from '../../../services/frontend.service';
 
 @Component({
   selector: 'app-project-card',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './project-card.component.scss',
 })
 export class ProjectCardComponent {
-
+  frontendService = inject(FrontendService)
 }

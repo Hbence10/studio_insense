@@ -21,7 +21,7 @@ public class UserController {
 
     @PostMapping("/register")
     private ResponseEntity<Object> register(@RequestBody AuthDto requestBody) {
-        return null;
+        return userService.register(requestBody);
     }
 
 

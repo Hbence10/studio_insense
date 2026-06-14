@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FrontendService } from '../../services/frontend.service';
 
 @Component({
   selector: 'app-not-found',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './not-found.component.scss',
 })
 export class NotFoundComponent {
-
+  frontendService = inject(FrontendService)
 }

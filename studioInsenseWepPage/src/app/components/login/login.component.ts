@@ -1,3 +1,4 @@
+import { FrontendService } from './../../services/frontend.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
   private userService = inject(UserService)
   private router = inject(Router)
+  frontendService = inject(FrontendService)
   form!: FormGroup
   errorMsg: string = ""
 

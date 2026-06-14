@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FrontendService } from '../../services/frontend.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,5 +9,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-
+  frontendService = inject(FrontendService)
 }

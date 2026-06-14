@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FrontendService } from '../../services/frontend.service';
 
 @Component({
   selector: 'app-services',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent {
-
+  frontendService = inject(FrontendService)
 }

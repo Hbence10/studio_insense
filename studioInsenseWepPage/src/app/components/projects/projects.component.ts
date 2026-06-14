@@ -3,6 +3,7 @@ import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { Router } from '@angular/router';
+import { FrontendService } from '../../services/frontend.service';
 
 @Component({
   selector: 'app-projects',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ProjectsComponent implements OnInit {
   projectService = inject(ProjectService)
+  frontendService = inject(FrontendService)
   projects: Project[] = []
   router = inject(Router)
   isError: boolean = false

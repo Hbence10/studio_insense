@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FrontendService } from '../../../../services/frontend.service';
 
 @Component({
   selector: 'app-image-viewer',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './image-viewer.component.scss',
 })
 export class ImageViewerComponent {
-
+  frontendService = inject(FrontendService)
 }

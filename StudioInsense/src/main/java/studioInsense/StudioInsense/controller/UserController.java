@@ -19,9 +19,9 @@ public class UserController {
         return userService.login(requestBody);
     }
 
-    @DeleteMapping("/{id}")
-    private ResponseEntity<Object> deleteUser(@PathVariable Long id) {
-        return userService.deleteUser(id);
+    @PostMapping("/register")
+    private ResponseEntity<Object> register(@RequestBody AuthDto requestBody) {
+        return null;
     }
 
 

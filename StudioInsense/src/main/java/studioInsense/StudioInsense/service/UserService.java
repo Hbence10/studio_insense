@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public ResponseEntity<Object> login(AuthDto givenAuthentication) {
         Users searchedUser = userRepository.findByEmailAndIsDeleted(givenAuthentication.email(), false).orElseThrow(() -> new NotFoundException("userNotFound"));
@@ -27,11 +28,8 @@ public class UserService {
         return ResponseEntity.ok().body(searchedUser);
     }
 
-    public ResponseEntity<Object> deleteUser(Long id) {
-        Users searchedUser = userRepository.findByIdAndIsDeleted(id, false).orElseThrow(() -> new NotFoundException("userNotFound"));
-        searchedUser.setDeletedAt(LocalDateTime.now());
-        searchedUser.setIsDeleted(true);
-        userRepository.save(searchedUser);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Object> register (AuthDto newUserData) {
+
+        return null;
     }
 }

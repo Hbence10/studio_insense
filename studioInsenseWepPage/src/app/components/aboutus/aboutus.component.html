@@ -35,5 +35,19 @@
 </div>
 
 @if (showImage) {
+  <div class="container-fluid" id="mainContainer">
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end align-items-center">
+        <button id="closeButton" class="d-flex justify-content-center align-items-center mt-2" (click)="showImage = false">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
 
+    <div class="row h-100">
+      <div class="col-lg-12 d-flex justify-content-center align-items-center">
+        <img src="/assets/egyeb/lillaKep.jpg" alt="Dr_Szatlóczki_Dóra_Lilla_potré" id="biggerImg" class="img-fluid" >
+      </div>
+    </div>
+  </div>
 }

@@ -1,3 +1,26 @@
 ul {
   list-style: none;
 }
+
+#mainContainer {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+}
+
+#biggerImg {
+  height: 750px;
+}
+
+#closeButton {
+  border: none;
+  border-radius: 8px;
+  height: 35px;
+  width: 35px;
+}
+
+#mainImage {
+  cursor: pointer;
+}

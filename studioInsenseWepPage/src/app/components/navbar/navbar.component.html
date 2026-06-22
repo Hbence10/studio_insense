@@ -3,11 +3,14 @@
     <div class="col-lg-12 d-flex justify-content-between align-items-center">
       <img routerLink="/projects" src="/assets/egyeb/insenseLogo.png" alt="studio_insense_logo" id="logo">
       <ul class="d-flex flex-row">
+        @if (userService.loggedUser?.role?.name == "ROLE_admin") {
+          <li class="mx-2">Projekt létrehozása</li>
+        }
         <li class="mx-2" routerLink="/projects">Projektek</li>
         <li class="mx-2" routerLink="/publications">Publikáció</li>
         <li class="mx-2" routerLink="/services">Szolgáltatások</li>
         <li class="mx-2" routerLink="/aboutUs">Rólunk/Kapcsolat</li>
-        <li>EN/HU</li>
+        <li (click)="changeLanguage()">EN/HU</li>
       </ul>
     </div>
   </div>

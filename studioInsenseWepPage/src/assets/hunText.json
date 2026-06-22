@@ -1,4 +1,5 @@
 {
+  "language": "hun",
   "menu1": "Projektek",
   "menu2": "Publikáció",
   "menu3": "Szolgáltatások",
@@ -6,5 +7,11 @@
   "aboutUsParagraph1": "",
   "aboutUsParagraph2": "",
   "notFound": "",
-  "unauthorized": ""
+  "unauthorized": "",
+  "services": [
+    { "title": "Belsőépitészeti tanácsadás", "text": "A tanácsadás során a tér bejárásával, ötleteléssel és szakmai iránymutatással segítjük a helyiségek optimális kialakítását. A folyamat végén a megbeszélt elrendezések, anyagok és színek írásos dokumentációban, vázlatos alaprajzzal és moodboarddal kerülnek átadásra, így a további tervezéshez és a megvalósításhoz jó alapot ad." },
+    { "title": "Belsőépitészei koncepció", "text": "A belsőépítészeti koncepció a tér lehetséges formáinak és hangulatának vizuális megfogalmazása. Segít áttekinteni a berendezés, anyaghasználat és színek összhangját, bemutatva, hogyan kel életre a tér még a kivitelezés előtt. A koncepció tartalmazza az alaprajzi elrendezést több verzióban, anyag- és színvilágot, valamint a kiemelt terekről látványterveket. A koncepcióterv egy olyan tervdokumentáció, amely meghatározza a desigt és a funkciót." },
+    { "title": "Komplex belsőépitészeti terv", "text": "A komplex belsőépítészeti tervezés a koncepcióalkotástól a kivitelezéshez szükséges részletes dokumentációig terjed. A megvalósításhoz a tervezési folyamat magában foglalja a koncepció- és vázlattervezési fázist, valamint a részletes műszaki és bútortervek elkészítését. Továbbá a tervdokumentáció része egy részletes anyag- és terméklista, amely a beszerzési és kivitelezési folyamatot támogatja. A kiviteli tervek átadását követően tervértelmezési támogatást biztosítunk, szükség esetén egyeztetünk a kivitelezőkkel, valamint igény szerint helyszíni művezetést és projektkoordinációt is vállalunk." },
+    { "title": "Design stratégia", "text": "Stratégiai tervezési szolgáltatás közületi projektek számára, amely a piaci rés azonosítására, a versenytársaktól való megkülönböztetésre és az üzleti célok design brandinggel történő megerősítésére fókuszál. Design research segítségével feltárjuk a projekt piaci és felhasználói összefüggéseit, majd az azonosított insightok alapján meghatározzuk a fejlesztési irányokat, koncepcionális kereteket és egyedi márkaértékeket." }
+  ]
 }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { FrontendService } from '../../../../services/frontend.service';
 
 @Component({
@@ -9,4 +9,6 @@ import { FrontendService } from '../../../../services/frontend.service';
 })
 export class ImageViewerComponent {
   frontendService = inject(FrontendService)
+  images = input.required<string[]>()
+  selectedImageIndex = input.required<number>()
 }

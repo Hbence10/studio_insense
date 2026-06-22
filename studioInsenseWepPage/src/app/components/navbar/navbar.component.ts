@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FrontendService } from '../../services/frontend.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,5 +10,10 @@ import { FrontendService } from '../../services/frontend.service';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  frontendService = inject(FrontendService)
+  private frontendService = inject(FrontendService)
+  userService = inject(UserService)
+
+  changeLanguage() {
+
+  }
 }

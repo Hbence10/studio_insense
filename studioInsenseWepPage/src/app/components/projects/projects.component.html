@@ -1,6 +1,14 @@
 <div class="container-fluid">
   @if (!isError) {
-
+    @for (row of projects; track $index) {
+      <div class="row">
+        @for (project of row; track $index) {
+          <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <app-project-card [project]="project" />
+          </div>
+        }
+      </div>
+    }
   } @else {
 
   }

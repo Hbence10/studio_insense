@@ -1,10 +1,17 @@
 {
-  "menu1": "",
-  "menu2": "",
-  "menu3": "",
-  "menu4": "",
+  "language": "eng",
+  "menu1": "Projects",
+  "menu2": "Publications",
+  "menu3": "Services",
+  "menu4": "About us/Contact",
   "aboutUsParagraph1": "",
   "aboutUsParagraph2": "",
   "notFound": "",
-  "unauthorized": ""
+  "unauthorized": "",
+  "services": [
+    {"title": "", "text": ""},
+    {"title": "", "text": ""},
+    {"title": "", "text": ""},
+    {"title": "", "text": ""}
+  ]
 }

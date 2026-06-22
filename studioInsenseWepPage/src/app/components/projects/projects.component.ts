@@ -14,14 +14,21 @@ import { FrontendService } from '../../services/frontend.service';
 export class ProjectsComponent implements OnInit {
   projectService = inject(ProjectService)
   frontendService = inject(FrontendService)
-  projects: Project[] = []
+  projects: Project[][] = []
   router = inject(Router)
   isError: boolean = false
 
   ngOnInit(): void {
     this.projectService.getAllProject().subscribe({
       next: (response) => {
-        this.projects = response
+        for (let i: number = 0; i < response.length; i+=3) {
+          const projectRow: Project[] = []
+          for (let j = i; j < i+3; j++) {
+            projectRow.push(response[j])
+          }
+          this.projects.push(projectRow)
+        }
+        console.log(this.projects)
       },
       error: () => {
         this.isError = true

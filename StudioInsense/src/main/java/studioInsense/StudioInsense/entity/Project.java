@@ -49,6 +49,21 @@ public class Project {
     @Column(name = "description_eng")
     private String descriptionEng;
 
+    @NotNull
+    @NotEmpty
+    @Column(name = "card_title_hu")
+    private String cardTitleHu;
+
+    @NotNull
+    @NotEmpty
+    @Column(name = "card_title_eng")
+    private String cardTitleEng;
+
+    @NotNull
+    @NotEmpty
+    @Column(name = "card_img")
+    private String cardImg;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

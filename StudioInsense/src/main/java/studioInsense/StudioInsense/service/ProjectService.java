@@ -10,6 +10,7 @@ import studioInsense.StudioInsense.exception.NotFoundException;
 import studioInsense.StudioInsense.repository.ProjectRepository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @Transactional
@@ -18,11 +19,11 @@ public class ProjectService {
 
     private final ProjectRepository projectRepository;
 
-    public ResponseEntity<Object> getAllProject() {
+    public ResponseEntity<List<Project>> getAllProject() {
         return ResponseEntity.ok(projectRepository.findByIsDeleted(false));
     }
 
-    public ResponseEntity<Object> getProjectById(Long id) {
+    public ResponseEntity<Project> getProjectById(Long id) {
         Project searchedProject = projectRepository.findByIdAndIsDeleted(id, false).orElseThrow(() -> new NotFoundException(""));
         return ResponseEntity.ok(searchedProject);
     }
@@ -33,5 +34,14 @@ public class ProjectService {
         searchedProject.setDeletedAt(LocalDateTime.now());
         projectRepository.save(searchedProject);
         return ResponseEntity.ok().build();
+    }
+
+    public ResponseEntity<Project> createProject(ProjectDto newProject) {
+        return null;
+    }
+
+    public ResponseEntity<Project> updateProject(Long id, ProjectDto updatedProject) {
+        Project searchedProject = projectRepository.findByIdAndIsDeleted(id, false).orElseThrow(() -> new NotFoundException(""));
+        return null;
     }
 }

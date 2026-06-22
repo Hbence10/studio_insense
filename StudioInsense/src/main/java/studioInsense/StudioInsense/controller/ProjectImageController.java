@@ -13,18 +13,5 @@ public class ProjectImageController {
 
     private final ProjectImageService projectImageService;
 
-    @PutMapping("/{id}")
-    private ResponseEntity<Object> changeImagesOfProject(@PathVariable Long id, MultipartFile image) {
-        return projectImageService.changeImageOfProject(id, image);
-    }
 
-    @DeleteMapping("/{id}")
-    private ResponseEntity<Object> deleteImageOfProduct(@PathVariable Long id) {
-        return projectImageService.deleteImage(id);
-    }
-
-    @PostMapping("/{id}")
-    private ResponseEntity<Object> addImageToProduct(@PathVariable Long id, MultipartFile image) {
-        return projectImageService.addImageToProduct(id, image);
-    }
 }

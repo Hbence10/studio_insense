@@ -18,17 +18,5 @@ public class ProjectImageService {
     private final ProjectRepository projectRepository;
     private final ProjectImageRepository projectImageRepository;
 
-    public ResponseEntity<Object> changeImageOfProject(Long projectId, MultipartFile image) {
-        return null;
-    }
 
-    public ResponseEntity<Object> deleteImage(Long projectId) {
-        ProjectImage searchedImage = projectImageRepository.findById(projectId).orElseThrow(() -> new NotFoundException("imageNotFound"));
-        projectImageRepository.delete(searchedImage);
-        return ResponseEntity.ok().build();
-    }
-
-    public ResponseEntity<Object> addImageToProduct(Long projectId, MultipartFile image) {
-        return null;
-    }
 }

@@ -1,53 +1,76 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="container-fluid">
-
-        <div class="row">
-          <div class="col-lg-12">
-            <h1 class="text-lg-start text-center">Rólunk</h1>
-            <p>Dr. Szatlóczki Dóra Lilla vagyok, a studió in.sense megálmodója. Szakmai szemléletemet a téralkotás és a vizuális gondolkodás iránti szenvedély határozza meg. Építészként olyan mérnöki látásmódot és alkotói szabadságot sajátítottam el, amelyek komplex gondolkodásom alapját képezik. A doktori fokozat megszerzése, - valamint a design thinking és a márkaépítési módszertanok megismerése teljessé tette tervezői gondolkodásmódomat, erős stratégiai alapot adva a kreatív döntésekhez.</p>
-            <p>Az in.sense studio-ban a belsőépítészet, a grafika, brand és üzleti stratégia kéz a kézben járnak, így minden részlet egymást erősítve teremti meg a teljes designélményt. Ez teszi az in.sense projektjeit igazán különlegessé.</p>
+@if (
+  languageService.selectedLanguage.language ==
+  cookieService.get("studioInsenseSelectedLanguage")
+  && firstRun
+) {
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="text-lg-start text-center">{{languageService.selectedLanguage.language == "hun" ? "Rólunk" : "About us"}}</h1>
+              <p>
+                {{ languageService.selectedLanguage.aboutUsParagraph1 }}
+              </p>
+              <p>
+                {{ languageService.selectedLanguage.aboutUsParagraph2 }}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-12">
-            <img src="" alt="" id="secondImage">
-            <div>
-              <p>Kapcsolat</p>
-              <ul>
-                <li>Dr Szatlóczki Dóra Lilla</li>
-                <li>+ 36303735475</li>
-                <li>lilla@insense.com</li>
-                <li>info@insense.com</li>
-              </ul>
+          <div class="row">
+            <div class="col-lg-12">
+              <img src="" alt="" id="secondImage" />
+              <div>
+                <p>{{languageService.selectedLanguage.language == "hun" ? "Kapcsolat" : "Contact"}}</p>
+                <ul>
+                  <li>Dr Szatlóczki Dóra Lilla</li>
+                  <li>+ 36303735475</li>
+                  <li>lilla@insense.com</li>
+                  <li>info@insense.com</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-    <div class="col-lg-4 d-fluid justify-content-center align-items-center">
-      <img (click)="showImage = true" src="/assets/egyeb/lillaKep.jpg" alt="Dr_Szatlóczki_Dóra_Lilla_potré" id="mainImage" class="img-fluid">
-    </div>
-  </div>
-</div>
-
-@if (showImage) {
-  <div class="container-fluid" id="mainContainer">
-    <div class="row">
-      <div class="col-lg-12 d-flex justify-content-end align-items-center">
-        <button id="closeButton" class="d-flex justify-content-center align-items-center mt-2" (click)="showImage = false">
-          <span class="material-symbols-outlined">close</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="row h-100">
-      <div class="col-lg-12 d-flex justify-content-center align-items-center">
-        <img src="/assets/egyeb/lillaKep.jpg" alt="Dr_Szatlóczki_Dóra_Lilla_potré" id="biggerImg" class="img-fluid" >
+      <div class="col-lg-4 d-fluid justify-content-center align-items-center">
+        <img
+          (click)="showImage = true"
+          src="/assets/egyeb/lillaKep.jpg"
+          alt="Dr_Szatlóczki_Dóra_Lilla_potré"
+          id="mainImage"
+          class="img-fluid"
+        />
       </div>
     </div>
   </div>
+
+  @if (showImage) {
+    <div class="container-fluid" id="mainContainer">
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-end align-items-center">
+          <button
+            id="closeButton"
+            class="d-flex justify-content-center align-items-center mt-2"
+            (click)="showImage = false"
+          >
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="row h-100">
+        <div class="col-lg-12 d-flex justify-content-center align-items-center">
+          <img
+            src="/assets/egyeb/lillaKep.jpg"
+            alt="Dr_Szatlóczki_Dóra_Lilla_potré"
+            id="biggerImg"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+  }
 }

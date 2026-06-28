@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FrontendService } from '../../services/frontend.service';
+import { LanguageService } from '../../services/language.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-services',
@@ -8,5 +9,6 @@ import { FrontendService } from '../../services/frontend.service';
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent {
-  frontendService = inject(FrontendService)
+  languageService = inject(LanguageService)
+  cookieService = inject(CookieService)
 }

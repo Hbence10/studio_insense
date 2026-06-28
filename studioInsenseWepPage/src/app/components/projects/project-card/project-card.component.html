@@ -1,6 +1,13 @@
+@if (
+  languageService.selectedLanguage.language ==
+  cookieService.get("studioInsenseSelectedLanguage")
+) {
+
 <div class="container-fluid" (click)="checkDetails()">
   <div class="col-lg-12">
-    <img [src]="project().cardImg" [alt]="project().titleHu">
-    <p>{{ project().cardTitleHu}}</p>
+    <img [src]="project().cardImg" [alt]="languageService.selectedLanguage.language == 'hun' ? project().titleHu : project().titleEng">
+    <p>{{ languageService.selectedLanguage.language == 'hun' ? project().titleHu : project().titleEng  }}</p>
   </div>
 </div>
+
+}

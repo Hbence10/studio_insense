@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FrontendService } from '../../services/frontend.service';
+import { LanguageService } from '../../services/language.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -10,10 +10,10 @@ import { UserService } from '../../services/user.service';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  private frontendService = inject(FrontendService)
+  private langaugeService = inject(LanguageService)
   userService = inject(UserService)
 
   changeLanguage() {
-
+    this.langaugeService.changeLanguage()
   }
 }

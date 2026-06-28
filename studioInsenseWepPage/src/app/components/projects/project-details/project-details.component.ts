@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from '../../../services/project.service';
 import { Project } from '../../../models/project.model';
 import { UserService } from '../../../services/user.service';
+import { CookieService } from 'ngx-cookie-service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-project-details',
@@ -12,7 +14,8 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './project-details.component.scss',
 })
 export class ProjectDetailsComponent implements OnInit {
-  frontendService = inject(FrontendService)
+  languageService = inject(LanguageService)
+  cookieService = inject(CookieService)
   private projectService = inject(ProjectService)
   private route = inject(ActivatedRoute)
   private router = inject(Router)

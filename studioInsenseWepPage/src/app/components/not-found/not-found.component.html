@@ -1,8 +1,10 @@
-<div class="container-fluid">
+@if (languageService.selectedLanguage.language == cookieService.get("studioInsenseSelectedLanguage")) {
+  <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12 d-flex flex-column justify-content-center align-items-center">
-      <h1>Nincs ilyen részleg az oldalon! Próbáld újra.</h1>
+      <h1>{{languageService.selectedLanguage.notFound}}</h1>
       <button routerLink="/projects" >Vissza a főoldlra</button>
     </div>
   </div>
 </div>
+}

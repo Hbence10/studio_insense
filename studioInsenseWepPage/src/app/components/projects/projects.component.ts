@@ -4,6 +4,8 @@ import { Project } from '../../models/project.model';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { Router } from '@angular/router';
 import { FrontendService } from '../../services/frontend.service';
+import { LanguageService } from '../../services/language.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-projects',
@@ -13,7 +15,8 @@ import { FrontendService } from '../../services/frontend.service';
 })
 export class ProjectsComponent implements OnInit {
   projectService = inject(ProjectService)
-  frontendService = inject(FrontendService)
+  languageService = inject(LanguageService)
+  cookieService = inject(CookieService)
   projects: Project[][] = []
   router = inject(Router)
   isError: boolean = false

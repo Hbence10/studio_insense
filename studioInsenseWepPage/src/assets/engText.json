@@ -6,12 +6,14 @@
   "menu4": "About us/Contact",
   "aboutUsParagraph1": "",
   "aboutUsParagraph2": "",
-  "notFound": "",
+  "notFound": "NotFound",
   "unauthorized": "",
   "services": [
     {"title": "", "text": ""},
     {"title": "", "text": ""},
     {"title": "", "text": ""},
     {"title": "", "text": ""}
-  ]
+  ],
+  "errorText": "",
+  "deleteConfirmation": ""
 }

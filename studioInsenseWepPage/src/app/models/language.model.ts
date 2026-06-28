@@ -11,5 +11,7 @@ export interface Language {
   services: {
     title: string,
     text: string
-  }[]
+  }[],
+  errorText: string,
+  deleteConfirmation: string
 }

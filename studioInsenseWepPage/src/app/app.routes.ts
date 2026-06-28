@@ -6,6 +6,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProjectDetailsComponent } from './components/projects/project-details/project-details.component';
 import { LoginComponent } from './components/login/login.component';
+import { languageResolver } from './languageResolver';
 
 export const routes: Routes = [
   { path: "projects", loadComponent: () => import("./components/projects/projects.component").then(c => c.ProjectsComponent) },
@@ -16,5 +17,5 @@ export const routes: Routes = [
   { path: "services", component: ServicesComponent },
   { path: "project/:id", component: ProjectDetailsComponent },
   { path: "UVRquGR0La1l6GXK0EcBVY02blFgzMCCdq7IhfjMHtd", component: LoginComponent },
-  { path: "**", component: NotFoundComponent },
+  { path: "**", component: NotFoundComponent, resolve: {lang: languageResolver} },
 ];

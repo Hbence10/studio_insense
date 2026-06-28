@@ -6,13 +6,12 @@ import { Language } from '../models/language.model';
   providedIn: 'root',
 })
 export class FrontendService {
-  private selectedLanguage!: Language
   alert: { showAlert: boolean, alertMsg: string, isError: boolean } = {
     showAlert: false,
     alertMsg: "",
     isError: false
   }
-  private http = inject(HttpClient)
+
   showProjectCreator: boolean = false
 
   handleAlert(alertMsg: string, isError: boolean) {

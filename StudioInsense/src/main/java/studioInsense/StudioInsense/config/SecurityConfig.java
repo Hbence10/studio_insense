@@ -58,12 +58,13 @@ public class SecurityConfig {
                     }
                 }))
                 .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/users/login", "/users/register").permitAll()
                         .anyRequest().permitAll()
                 )
                 .authenticationProvider(authProvider())
                 .addFilterAfter(jwtGeneratorFilter, BasicAuthenticationFilter.class)
                 .addFilterBefore(jwtValidatorFilter, BasicAuthenticationFilter.class)
-//                .formLogin(Customizer.withDefaults())
+                .formLogin(Customizer.withDefaults())
                 .formLogin(f -> f.disable())
                 .csrf(crs -> crs.disable())
                 .httpBasic(Customizer.withDefaults());

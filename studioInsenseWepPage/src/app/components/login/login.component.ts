@@ -1,12 +1,16 @@
 import { FrontendService } from './../../services/frontend.service';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -16,6 +20,7 @@ export class LoginComponent implements OnInit{
   frontendService = inject(FrontendService)
   form!: FormGroup
   errorMsg: string = ""
+  hide = signal(true);
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -36,5 +41,10 @@ export class LoginComponent implements OnInit{
         this.router.navigate(["/project"])
       }
     })
+  }
+
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation();
   }
 }

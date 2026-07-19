@@ -28,7 +28,7 @@ public class UserService {
 
     public ResponseEntity<Object> register(AuthDto newUserData) {
         String encodedPassword = passwordEncoder.encode(newUserData.password());
-        Users newUser = new Users(newUserData.email(), newUserData.password());
+        Users newUser = new Users(newUserData.email(), encodedPassword);
         userRepository.save(newUser);
         return ResponseEntity.ok().build();
     }

@@ -59,5 +59,6 @@ public class Users {
         this.password = password;
         this.createdAt = LocalDateTime.now();
         this.isDeleted = false;
+        this.role = new Role(2L);
     }
 }

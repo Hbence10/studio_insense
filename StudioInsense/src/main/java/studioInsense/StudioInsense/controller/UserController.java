@@ -23,6 +23,4 @@ public class UserController {
     private ResponseEntity<Object> register(@RequestBody AuthDto requestBody) {
         return userService.register(requestBody);
     }
-
-
 }

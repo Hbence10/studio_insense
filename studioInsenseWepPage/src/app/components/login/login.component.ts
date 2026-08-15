@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit{
 
       },
       complete: () => {
-        this.router.navigate(["/project"])
+        console.log(this.userService.loggedUser)
+        this.router.navigate(["/projects"])
       }
     })
   }

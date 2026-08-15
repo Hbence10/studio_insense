@@ -11,7 +11,7 @@ export class RoleGuard implements CanMatch {
   canMatch(route: Route, segments: UrlSegment[]) {
     let data = route.data as { roles: string[] }
 
-    if (data.roles.includes(this.userService.loggedUser?.role.name!)) {
+    if (this.userService.loggedUser?.role.name! === "ROLE_admin") {
       return true
     }
 

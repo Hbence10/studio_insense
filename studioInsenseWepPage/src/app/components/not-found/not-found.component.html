@@ -1,10 +1,17 @@
-@if (languageService.selectedLanguage.language == cookieService.get("studioInsenseSelectedLanguage")) {
-  <div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12 d-flex flex-column justify-content-center align-items-center">
-      <h1>{{languageService.selectedLanguage.notFound}}</h1>
-      <button routerLink="/projects" >Vissza a főoldlra</button>
+@if (
+  languageService.selectedLanguage.language ==
+  cookieService.get("studioInsenseSelectedLanguage")
+) {
+  <div class="container-fluid" style="height: 100vh;">
+    <div class="row h-100">
+      <div
+        class="col-lg-12 d-flex flex-column justify-content-center align-items-center"
+      >
+        <h1>{{ languageService.selectedLanguage.notFound }}</h1>
+        <button matButton="filled" routerLink="/projects" class="navigationButton">
+          Vissza a főoldlra
+        </button>
+      </div>
     </div>
   </div>
-</div>
 }

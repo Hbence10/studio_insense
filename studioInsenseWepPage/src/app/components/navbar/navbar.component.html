@@ -4,7 +4,7 @@
       <img routerLink="/projects" src="/assets/egyeb/insenseLogo.png" alt="studio_insense_logo" id="logo">
       <ul class="d-flex flex-row">
         @if (userService.loggedUser?.role?.name == "ROLE_admin") {
-          <li class="mx-2">Projekt létrehozása</li>
+          <li class="mx-2" routerLink="/project/create">Projekt létrehozása</li>
         }
         <li class="mx-2" routerLink="/projects">Projektek</li>
         <li class="mx-2" routerLink="/publications">Publikáció</li>

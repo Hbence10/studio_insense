@@ -18,9 +18,13 @@ export const routes: Routes = [
   { path: "publications", component: PublicationsComponent },
   { path: "aboutUs", component: AboutusComponent },
   { path: "services", component: ServicesComponent },
-  { path: "project/create", component: ProjectCreatorComponent, canMatch: [AuthGuard, RoleGuard] },
+  { path: "project/create", component: ProjectCreatorComponent,
+    //scanMatch: [AuthGuard, RoleGuard]
+
+
+  },
   { path: "project/edit/:id", component: ProjectCreatorComponent},
   { path: "project/:id", component: ProjectDetailsComponent },
-  { path: "UVRquGR0La1l6GXK0EcBVY02blFgzMCCdq7IhfjMHtd", component: LoginComponent },
+  { path: "login", component: LoginComponent },
   { path: "**", component: NotFoundComponent, resolve: { lang: languageResolver } },
 ];

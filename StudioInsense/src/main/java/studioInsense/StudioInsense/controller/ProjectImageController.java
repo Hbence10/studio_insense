@@ -13,5 +13,13 @@ public class ProjectImageController {
 
     private final ProjectImageService projectImageService;
 
+    @PostMapping("/{id}")
+    private ResponseEntity<Object> addImagesToProject(@PathVariable Long id) {
+        return null;
+    }
 
+    @DeleteMapping("/{id}")
+    private ResponseEntity<Object> deleteImage(@PathVariable Long id) {
+        return projectImageService.deleteImage(id);
+    }
 }

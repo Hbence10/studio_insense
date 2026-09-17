@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import studioInsense.StudioInsense.dto.ProjectDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -76,4 +77,13 @@ public class Project {
 
     @OneToMany(mappedBy = "project")
     private List<ProjectImage> images;
+
+    public Project(ProjectDto newProject) {
+        this.titleHu = newProject.titleHu();
+        this.descriptionHu = newProject.descriptionHu();
+        this.cardTitleHu = newProject.cardTitleHu();
+        this.titleEng = newProject.titleEng();
+        this.descriptionEng = newProject.descriptionEng();
+        this.cardTitleEng = newProject.cardTitleEng();
+    }
 }

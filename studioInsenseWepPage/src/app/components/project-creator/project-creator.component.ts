@@ -1,3 +1,7 @@
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Project } from '../../models/project.model';
@@ -6,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-creator',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
   templateUrl: './project-creator.component.html',
   styleUrl: './project-creator.component.scss',
 })
@@ -16,11 +20,13 @@ export class ProjectCreatorComponent implements OnInit {
   projectService = inject(ProjectService)
   route = inject(ActivatedRoute)
   errorMsg: string = ""
+  private id: number = 0
 
   ngOnInit(): void {
     this.route.params.subscribe({
       next: paramResponse => {
         if (paramResponse["id"] != undefined) {
+          this.id = paramResponse["id"]
           this.projectService.getProjectById(paramResponse["id"]).subscribe({
             next: response => {
               this.selectedProject.set(response)
@@ -54,10 +60,36 @@ export class ProjectCreatorComponent implements OnInit {
   }
 
   createProject() {
-
+    this.projectService.createProject({
+      titleHu: this.form.controls["titleHun"].value,
+      titleEng: this.form.controls["titleEng"].value,
+      descriptionHu: this.form.controls["descriptionHun"].value,
+      descriptionEng: this.form.controls["descriptionEng"].value,
+      cardTitleHu: this.form.controls["cardTitleHun"].value,
+      cardTitleEng: this.form.controls["cardTitleEng"].value
+    }).subscribe({
+      next: (response) => { },
+      error: (error) => { },
+      complete: () => { }
+    })
   }
 
   saveUpdate() {
+    this.projectService.updateProject({
+      titleHu: this.form.controls["titleHun"].value,
+      titleEng: this.form.controls["titleEng"].value,
+      descriptionHu: this.form.controls["descriptionHun"].value,
+      descriptionEng: this.form.controls["descriptionEng"].value,
+      cardTitleHu: this.form.controls["cardTitleHun"].value,
+      cardTitleEng: this.form.controls["cardTitleEng"].value
+    }, this.id).subscribe({
+      next: (response) => { },
+      error: (error) => { },
+      complete: () => { }
+    })
+  }
+
+  uploadFiles() {
 
   }
 }

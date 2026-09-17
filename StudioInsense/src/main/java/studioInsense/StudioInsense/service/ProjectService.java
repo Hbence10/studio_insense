@@ -36,12 +36,19 @@ public class ProjectService {
         return ResponseEntity.ok().build();
     }
 
-    public ResponseEntity<Project> createProject(ProjectDto newProject) {
-        return null;
+    public ResponseEntity<Project> createProject(ProjectDto newProjectDto) {
+        Project newProject = new Project(newProjectDto);
+        return ResponseEntity.ok(projectRepository.save(newProject));
     }
 
     public ResponseEntity<Project> updateProject(Long id, ProjectDto updatedProject) {
         Project searchedProject = projectRepository.findByIdAndIsDeleted(id, false).orElseThrow(() -> new NotFoundException(""));
-        return null;
+        searchedProject.setTitleHu(updatedProject.titleHu());
+        searchedProject.setDescriptionHu(updatedProject.descriptionHu());
+        searchedProject.setCardTitleHu(updatedProject.cardTitleHu());
+        searchedProject.setTitleEng(updatedProject.titleEng());
+        searchedProject.setDescriptionEng(updatedProject.descriptionEng());
+        searchedProject.setCardTitleEng(updatedProject.cardTitleEng());
+        return ResponseEntity.ok(projectRepository.save(searchedProject));
     }
 }

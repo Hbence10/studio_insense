@@ -1,0 +1,60 @@
+<ng-template #tile let-item let-fill="fill">
+  <button
+    type="button"
+    class="tile"
+    [class.tile--fill]="fill"
+    [style.flex-grow]="item.ratio"
+    [style.aspect-ratio]="fill ? null : item.ratio"
+    (click)="open(item.index)"
+  >
+    <img [src]="item.src" [alt]="alt() + ' ' + (item.index + 1)" loading="lazy" decoding="async" />
+  </button>
+</ng-template>
+
+@if (loading()) {
+  <div class="gallery" aria-busy="true">
+    <div class="skeleton skeleton--hero"></div>
+    <div class="block">
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+    </div>
+  </div>
+} @else {
+  <div class="gallery">
+    @for (block of blocks(); track $index) {
+      @if (block.kind === 'full') {
+        <div class="block block--full">
+          <ng-container *ngTemplateOutlet="tile; context: { $implicit: block.item }" />
+        </div>
+      } @else if (block.kind === 'split') {
+        <div class="block block--split" [class.block--reverse]="block.reverse">
+          <ng-container *ngTemplateOutlet="tile; context: { $implicit: block.feature, fill: true }" />
+          <div class="stack" [style.flex-grow]="block.stackRatio">
+            @for (item of block.stack; track item.index) {
+              <ng-container *ngTemplateOutlet="tile; context: { $implicit: item }" />
+            }
+          </div>
+        </div>
+      } @else {
+        <div class="block block--row" [class.block--solo]="block.solo">
+          @for (item of block.items; track item.index) {
+            <ng-container *ngTemplateOutlet="tile; context: { $implicit: item }" />
+          }
+        </div>
+      }
+    }
+  </div>
+}
+
+@if (active(); as item) {
+  <div class="lightbox" role="dialog" aria-modal="true" (click)="close()">
+    <img [src]="item.src" [alt]="alt() + ' ' + (item.index + 1)" (click)="$event.stopPropagation()" />
+
+    <button type="button" class="lb-btn lb-close" aria-label="Bezárás" (click)="close()">&times;</button>
+    @if (items().length > 1) {
+      <button type="button" class="lb-btn lb-prev" aria-label="Előző" (click)="step(-1, $event)">&#8249;</button>
+      <button type="button" class="lb-btn lb-next" aria-label="Következő" (click)="step(1, $event)">&#8250;</button>
+    }
+    <span class="lb-counter">{{ item.index + 1 }} / {{ items().length }}</span>
+  </div>
+}

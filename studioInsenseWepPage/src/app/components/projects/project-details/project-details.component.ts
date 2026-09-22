@@ -6,10 +6,11 @@ import { Project } from '../../../models/project.model';
 import { UserService } from '../../../services/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { LanguageService } from '../../../services/language.service';
+import { GalleryComponent } from '../gallery/gallery.component';
 
 @Component({
   selector: 'app-project-details',
-  imports: [],
+  imports: [GalleryComponent],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.scss',
 })
@@ -24,6 +25,7 @@ export class ProjectDetailsComponent implements OnInit {
   searchedProject!: Project
   showDeleteConfirmation: boolean = false
   showImageViewer: boolean = false
+  imgList: string[] = ["assets/kep1.jpg", "assets/kep1.jpg", "assets/kep2.jpg", "assets/kep3.jpg", "assets/kep4.jpg", "assets/kep5.jpg"]
 
   ngOnInit(): void {
     this.route.params.subscribe({

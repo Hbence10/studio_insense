@@ -2,6 +2,12 @@
   height: 100vh;
 }
 
+@media (max-width: 992px) {
+  #middleRow {
+    height: auto !important;
+  }
+}
+
 // #navbar {
 //   top: 0px;
 //   position: sticky;

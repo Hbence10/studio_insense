@@ -20,8 +20,6 @@ export const routes: Routes = [
   { path: "services", component: ServicesComponent },
   { path: "project/create", component: ProjectCreatorComponent,
     //scanMatch: [AuthGuard, RoleGuard]
-
-
   },
   { path: "project/edit/:id", component: ProjectCreatorComponent},
   { path: "project/:id", component: ProjectDetailsComponent },

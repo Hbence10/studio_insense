@@ -2,12 +2,12 @@
   languageService.selectedLanguage.language ==
   cookieService.get("studioInsenseSelectedLanguage")
 ) {
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-7">
-        <div class="container-fluid">
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+      <div class="col-lg-7 h-100">
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
           @for (service of languageService.selectedLanguage.services; track $index) {
-            <div class="row">
+            <div class="row my-3">
               <div class="col-lg-12">
                 <h5>{{service.title}}</h5>
                 <p>{{service.text}}</p>
@@ -16,7 +16,25 @@
           }
         </div>
       </div>
-      <div class="col-lg-5"></div>
+      <div class="col-lg-5">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="assets/placeholder.png" alt="" class="img-fluid standingImg">
+            </div>
+            <div class="col-lg-6">
+              <img src="assets/placeholder.png" alt="" class="img-fluid standingImg">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 mt-4">
+              <img src="assets/placeholder.png" alt="" class="img-fluid lyingImg">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 }

@@ -1,0 +1,40 @@
+<label
+  id="drop-zone"
+  [class.dragging]="isDragging()"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave()"
+  (drop)="onDrop($event)"
+>
+  Húzd ide a képeket, vagy kattints a feltöltéshez
+  <input
+    type="file"
+    id="file-input"
+    multiple
+    accept="image/*"
+    (change)="onFileSelected($event)"
+  />
+</label>
+
+<div class="card-list">
+  @for (image of images(); track image.id) {
+    <div class="card" (click)="openPreview(image)">
+      <img [src]="image.url" [alt]="image.file.name" />
+      <div class="card-footer">
+        <span class="file-name" [title]="image.file.name">{{ image.file.name }}</span>
+        <button type="button" class="delete-btn" (click)="removeImage(image, $event)">
+          Törlés
+        </button>
+      </div>
+    </div>
+  } @empty {
+    <p class="empty">Még nincs feltöltött kép.</p>
+  }
+</div>
+
+<!-- Előnézet -->
+@if (selected(); as img) {
+  <div class="overlay" (click)="closePreview()">
+    <img [src]="img.url" [alt]="img.file.name" (click)="$event.stopPropagation()" />
+    <button type="button" class="close-btn" (click)="closePreview()">✕</button>
+  </div>
+}

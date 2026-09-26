@@ -7,10 +7,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 import { ActivatedRoute } from '@angular/router';
+import { ImageUploadComponent } from '../image-upload/image-upload.component';
 
 @Component({
   selector: 'app-project-creator',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, ImageUploadComponent],
   templateUrl: './project-creator.component.html',
   styleUrl: './project-creator.component.scss',
 })

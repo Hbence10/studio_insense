@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project.model';
 import { ProjectDto } from '../models/projectDto';
@@ -10,6 +10,7 @@ import { ProjectDto } from '../models/projectDto';
 export class ProjectService {
   private http = inject(HttpClient)
   private baseUrl: string = "http://localhost:8080/project"
+  uploadedImages = signal<File[]>([])
 
   getAllProject(): Observable<Project[]> {
     return this.http.get<Project[]>(this.baseUrl)
